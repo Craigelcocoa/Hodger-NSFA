@@ -1,0 +1,106 @@
+{
+  "league" : {
+    "lastWeek":0,
+    "teams" :[
+    {
+      "name" : "Team 1",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 2",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 3",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 4",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 5",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 6",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 7",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 8",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 9",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    },
+    {
+      "name" : "Team 10",
+      "played" : 0,
+      "won" : 0,
+      "lost" : 0,
+      "drawn" : 0,
+      "for" : 0,
+      "against" : 0,
+      "points" : 0
+    }],
+  }
+}

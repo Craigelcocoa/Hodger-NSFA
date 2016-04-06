@@ -1,0 +1,82 @@
+{
+  "fixtures" : [
+  {
+    "week":1,
+    "matches" :[
+      {
+        "home" : "Team 1",
+        "away" : "Team 2",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 3",
+        "away" : "Team 4",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 5",
+        "away" : "Team 6",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 7",
+        "away" : "Team 8",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 9",
+        "away" : "Team 10",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      }],
+  },
+  {
+    "week":2,
+    "matches" :[
+      {
+        "home" : "Team 1",
+        "away" : "Team 2",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 3",
+        "away" : "Team 4",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 5",
+        "away" : "Team 6",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 7",
+        "away" : "Team 8",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      },
+      {
+        "home" : "Team 9",
+        "away" : "Team 10",
+        "result" : "d",
+        "hgoals" : 0,
+        "agoals" : 0
+      }],
+  }
+  ]
+}
