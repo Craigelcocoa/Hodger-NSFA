@@ -81,7 +81,7 @@
 	  <div class="row">
 		<p class="lead text-muted">Add a new player.</p>
 	  </div>
-    <form class="form-inline">
+    <form class="form-inline" id="newPlayerForm">
   		<div class="form-group">
     		<label for="addPlayForename">First Name</label>
     		<input type="text" class="form-control" id="addPlayForename" placeholder="Desmond">
@@ -90,7 +90,23 @@
         <label for="addPlaySurname">Last Name</label>
     		<input type="text" class="form-control" id="addPlaySurname" placeholder="Hamilton">
   		</div>
-  		<button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group">
+        <div class="btn-group">
+          <button type="button" id="pissBtn" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Player Type
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" id="pTypeDD">
+            <li><a href="#newPlayerForm">Goalkeeper</a></li>
+            <li><a href="#newPlayerForm">Defender</a></li>
+            <li><a href="#newPlayerForm">Midfielder</a></li>
+            <li><a href="#newPlayerForm">Striker</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row pull-right">
+  		  <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
 	</form>
   <br>
 	<div class="row">
@@ -127,35 +143,44 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function() {
-    		var myItems;
-    		var goalDiv;
-        var squadDiv;
-        var manager;
-    		var d = new Date();
+    	var myItems;
+    	var goalDiv;
+      var squadDiv;
+      var manager;
+    	var d = new Date();
 			var curr_date = d.getDate();
 			var curr_month = d.getMonth()+1;
 			var curr_year = d.getFullYear();
 
-    		console.log("whatup mother fucker its "+curr_date+"/"+curr_month+"/"+curr_year);
-    		$.getJSON('under11.json', function(data) {
-        		myItems = data.squad;
-            manager = data.manager.name;
-            console.log(manager);
-            mName = manager.split(' ');
-            console.log(mName[0]+" "+mName[1]);
+    	console.log("whatup mother fucker its "+curr_date+"/"+curr_month+"/"+curr_year);
+    	$.getJSON('under11.json', function(data) {
+      	myItems = data.squad;
+        manager = data.manager.name;
+        console.log(manager);
+        mName = manager.split(' ');
+        console.log(mName[0]+" "+mName[1]);
 
-            $('#mgrForename').attr('placeholder',mName[0]);
-            $('#mgrSurname').attr('placeholder',mName[1]);
-            $('#mgrProfile').text(data.manager.profile);
+        $('#mgrForename').attr('placeholder',mName[0]);
+        $('#mgrSurname').attr('placeholder',mName[1]);
+        $('#mgrProfile').text(data.manager.profile);
 
-        		$.each(data.squad.goalkeepers, function(key, val) {
-        			console.log(val.name+" "+val.text);
-   					goalDiv = $( "<div class='col-sm-6 col-md-4'><div class='thumbnail'><img src='css/images/hoopdog.jpg' alt='Shite Event'><div class='Koala Stabbing'><h3>"+val.name+"</h3><p>"+val.text+"</p></div></div></div>" );
-   					$('#goalies').append(goalDiv);
-            squadDiv = $( "<div class='form-group'><label for='inputForename'>First Name</label><input type='text' class='form-control' id='inputForename' placeholder="+val.name+"></div><div class='form-group'><label for='inputSurname'>Last Name</label><input type='text' class='form-control' id='inputSurname' placeholder='Hamilton'></div><div class='checkbox'><label><input type='checkbox'> Remove Player </label></div><br> ");
-            $('#squadBtn').before(squadDiv);
+      	$.each(data.squad.goalkeepers, function(key, val) {
+          console.log(val.name+" "+val.text);
+          goalDiv = $( "<div class='col-sm-6 col-md-4'><div class='thumbnail'><img src='css/images/hoopdog.jpg' alt='Shite Event'><div class='Koala Stabbing'><h3>"+val.name+"</h3><p>"+val.text+"</p></div></div></div>" );
+   			  $('#goalies').append(goalDiv);
+          squadDiv = $( "<div class='form-group'><label for='inputForename'>First Name</label><input type='text' class='form-control' id='inputForename' placeholder="+val.name+"></div><div class='form-group'><label for='inputSurname'>Last Name</label><input type='text' class='form-control' id='inputSurname' placeholder='Hamilton'></div><div class='checkbox'><label><input type='checkbox'> Remove Player </label></div><br> ");
+          $('#squadBtn').before(squadDiv);
 				})
-    		});
+    	});
+      
+      $('#newPlayerForm').submit(function(event){
+        console.log(($('#addPlayForename').val())+" "+($('#addPlaySurname').val())+" "+($('#pissBtn').text()));  
+      });
+
+      $('#pTypeDD li a').on('click', function(){
+        console.log("frog twat: "+($(this).text()));
+        $('#pissBtn').html($(this).text());  
+      });
 		});
 	</script>
   </body>

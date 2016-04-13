@@ -4,8 +4,7 @@
     "image" : "poo.jpg",
     "profile" : "This guy is in charge, he overcomplicates things and at half-time, hands out oranges and sticks his finger up some players bums"
   },
-  "squad" : {
-    "goalkeepers" :[
+  "squad" : [
     {
       "name" : "Ken Hom",
       "position" : "29x29",
@@ -17,104 +16,97 @@
       "position" : "29x29",
       "text" : "Goes to Gossy high, thinks hes hard. Everyone thinks hes a cunt",
       "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
+    },
+    {
+      "name" : "Ken Hom",
+      "position" : "29x29",
+      "text" : "2x",
+      "image" : "ken.jpg"
     }],
-    "defenders" :[
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    }
-  ],
-   "midfielders" :[
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    }
-  ],
-  "strikers" :[
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    },
-    {
-      "name" : "Ken Hom",
-      "position" : "29x29",
-      "text" : "2x",
-      "image" : "ken.jpg"
-    }
-  ]
-  },
   "fixtures" : {
     
   }
