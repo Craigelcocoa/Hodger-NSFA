@@ -1,18 +1,20 @@
 <?php
-	$name = $_POST['name'];
-	$pType = $_POST['type'];
-	$school = $_POST['school'];
+	$fName = $_POST['forename'];
+	$sName = $_POST['surname'];
+	$profile = $_POST['profile'];
+	$image = $_POST['image'];
+	$newName = $fName." ".$sName;
 	
 	$jsondonovon = file_get_contents('pissflaps.json');
 	$jsonObj = json_decode($jsondonovon);
 
 	$squad = $jsonObj->{'squad'};
-	$manager = $jsonObj->{'manager'};
+	//$manager = $jsonObj->{'manager'};
 
 	//Add Player Routine
-	$newPlayer = (object)['name'=>$name,'school'=>$school,'position'=>$pType,'text'=>'','image'=>''];
-	$squad[] = $newPlayer;
-	$newSquad = (object)['manager'=>$manager, 'squad'=>$squad];
+	$newManager = (object)['name'=>$newName,'image'=>$image,'profile'=>$profile];
+	//$manager[] = $newManager;
+	$newSquad = (object)['manager'=>$newManager, 'squad'=>$squad];
 	rebuildJsonFile($newSquad);
 
 	//Edit Manager Routine

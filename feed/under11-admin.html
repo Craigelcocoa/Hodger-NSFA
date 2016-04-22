@@ -57,6 +57,34 @@
 	  <div class="row marketing">
       <p class="lead text-muted">Edit the under 11 information using the forms below to edit the manager, squad and add fixtures/results.</p>
     </div>
+
+    <div class="row">
+      <p class="lead text-muted">Add a fixture</p>
+    </div>
+    <form class="form-inline" id="fixForm">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" id="homeTeam" placeholder="Home Team">
+          <input type="text" class="form-control col-xs-1" id="homeScore" placeholder="0">
+          <div class="input-group-addon">Vs</div>
+          <input type="text" class="form-control" id="awayTeam" placeholder="Away Team">
+          <input type="text" class="form-control col-xs-1" id="awayScore" placeholder="0">
+        </div>
+        <!--<label for="homeTeam">Home</label>
+        <input type="text" class="form-control" id="homeTeam" placeholder="Josse's Giants">
+        <input type="text" class="form-control" id="homeScore" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="awayTeam">Away</label>
+        <input type="text" class="form-control" id="awayTeam" placeholder="The Hurricanes">
+        <input type="text" class="form-control" id="awayScore" placeholder="">
+      </div>-->
+      </div>
+      <div class="form-group">
+        <button id="mangBtn" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    <br>
     <div class="row">
       <p class="lead text-muted">Edit Manager detail.</p>
     </div>
@@ -73,23 +101,60 @@
         <label for="mgrProfile">Profile</label>
         <textarea class="form-control" id="mgrProfile" rows="5">A load of shit in here about the manager. Hes not a nonce, honest etc..</textarea>
       </div>
+	  <div class="form-group">
+		<label for="mgrImage">Manager Image</label>
+		<input type="file" id="mgrImage">
+		<p class="help-block">Select a new image for manager pic.</p>
+	  </div>
       <div class="form-group">
         <button id="mangBtn" type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>
+
+    <div class="row">
+      <p class="lead text-muted">Add a school to select players from.</p>
+    </div>
+    <form class="form-inline" id="newSchoolForm">
+      <div class="form-group">
+        <label for="addSchoolName">School Name</label>
+        <input type="text" class="form-control" id="addSchoolName" placeholder="">
+      </div>
+      <div class="row pull-right">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    <br>
+
+    <div class="row">
+      <p class="lead text-muted">Remove a school.</p>
+    </div>
+    <form class="form-inline" id="removeSchoolForm">
+      
+      <div class="row pull-right">
+        <button type="submit" id="removeSchoolBtn" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    <br>
 
 	  <div class="row">
 		<p class="lead text-muted">Add a new player.</p>
 	  </div>
     <form class="form-inline" id="newPlayerForm">
   		<div class="form-group">
-    		<label for="addPlayForename">First Name</label>
-    		<input type="text" class="form-control" id="addPlayForename" placeholder="Desmond">
+    		<label for="addPlayName">Name</label>
+    		<input type="text" class="form-control" id="addPlayName" placeholder="Desmond Hamilton">
     	</div>
-      <div class="form-group">	
-        <label for="addPlaySurname">Last Name</label>
-    		<input type="text" class="form-control" id="addPlaySurname" placeholder="Hamilton">
-  		</div>
+      <div class="form-group">
+        <div class="btn-group">
+          <button type="button" id="schoolsBtn" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            School
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" id="schoolsDD">
+            
+          </ul>
+        </div>
+      </div>
       <div class="form-group">
         <div class="btn-group">
           <button type="button" id="pissBtn" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -110,23 +175,10 @@
 	</form>
   <br>
 	<div class="row">
-		<p class="lead text-muted">Edit players in squad.</p>
+		<p class="lead text-muted">Remove players from squad.</p>
 	</div>
     <form class="form-inline" id="squadForm">
-  		<div class="form-group col-sm-offset-0">
-    		<label for="inputForename">First Name</label>
-    		<input type="text" class="form-control" id="inputForename" placeholder="Desmond">
-  		</div>
-  		<div class="form-group">
-    		<label for="inputSurname">Last Name</label>
-    		<input type="text" class="form-control" id="inputSurname" placeholder="Hamilton">
-  		</div>
-  		<div class="checkbox">
-    		<label>
-      		<input type="checkbox"> Remove Player
-    		</label>
-  		</div>
-  		<br>
+		
   		<button id="squadBtn" type="submit" class="btn btn-primary">Submit</button>
 	</form>
 	<br>
@@ -143,44 +195,106 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function() {
-    	var myItems;
-    	var goalDiv;
-      var squadDiv;
-      var manager;
-    	var d = new Date();
+			var myItems;
+			var goalDiv;
+			var squadDiv;
+      var schoolDiv;
+			var manager;
+			var d = new Date();
 			var curr_date = d.getDate();
 			var curr_month = d.getMonth()+1;
 			var curr_year = d.getFullYear();
 
-    	console.log("whatup mother fucker its "+curr_date+"/"+curr_month+"/"+curr_year);
-    	$.getJSON('under11.json', function(data) {
-      	myItems = data.squad;
-        manager = data.manager.name;
-        console.log(manager);
-        mName = manager.split(' ');
-        console.log(mName[0]+" "+mName[1]);
+      $.getJSON('schools.json', function(data) {
+        $.each(data.schools, function(key, value){
+          $('#schoolsDD').append("<li><a href='#newPlayerForm'>"+value.name+"</a></li>");
+        })
+      });
 
-        $('#mgrForename').attr('placeholder',mName[0]);
-        $('#mgrSurname').attr('placeholder',mName[1]);
-        $('#mgrProfile').text(data.manager.profile);
+			$.getJSON('u11Fixtures.json', function(data) {
 
-      	$.each(data.squad.goalkeepers, function(key, val) {
-          console.log(val.name+" "+val.text);
-          goalDiv = $( "<div class='col-sm-6 col-md-4'><div class='thumbnail'><img src='css/images/hoopdog.jpg' alt='Shite Event'><div class='Koala Stabbing'><h3>"+val.name+"</h3><p>"+val.text+"</p></div></div></div>" );
-   			  $('#goalies').append(goalDiv);
-          squadDiv = $( "<div class='form-group'><label for='inputForename'>First Name</label><input type='text' class='form-control' id='inputForename' placeholder="+val.name+"></div><div class='form-group'><label for='inputSurname'>Last Name</label><input type='text' class='form-control' id='inputSurname' placeholder='Hamilton'></div><div class='checkbox'><label><input type='checkbox'> Remove Player </label></div><br> ");
-          $('#squadBtn').before(squadDiv);
+      });
+
+      $.getJSON('pissflaps.json', function(data) {
+				myItems = data.squad;
+				manager = data.manager.name;
+				console.log(manager);
+				mName = manager.split(' ');
+				console.log(mName[0]+" "+mName[1]);
+
+				$('#mgrForename').attr('placeholder',mName[0]);
+				$('#mgrSurname').attr('placeholder',mName[1]);
+				$('#mgrProfile').text(data.manager.profile);
+
+				$.each(data.squad, function(key, val) {
+					console.log(val.name+" "+val.text);
+					//goalDiv = $( "<div class='col-sm-6 col-md-4'><div class='thumbnail'><img src='css/images/hoopdog.jpg' alt='Shite Event'><div class='Koala Stabbing'><h3>"+val.name+"</h3><p>"+val.text+"</p></div></div></div>" );
+					//$('#goalies').append(goalDiv);
+					//squadDiv = $( "<div class='player'><div class='form-group col-sm-8'><label for='inputForename' id='name'>First Name</label><input type='text' class='form-control' id='inputForename' placeholder='"+val.name+"'></div><div class='form-group'><label for='inputSurname'>Last Name</label><input type='text' class='form-control' id='inputSurname' placeholder='Hamilton'></div><div class='checkbox'><label><input type='checkbox'> Remove Player </label></div></div><br> ");
+					squadDiv = $( "<div class='player'><div class='form-group col-sm-8'><label for='inputForename' id='name'>"+val.name+"</label></div><div class='checkbox' id='remove'><label><input type='checkbox'> Remove Player </label></div></div><br> ");
+					$('#squadBtn').before(squadDiv);
 				})
-    	});
+			});
       
-      $('#newPlayerForm').submit(function(event){
-        console.log(($('#addPlayForename').val())+" "+($('#addPlaySurname').val())+" "+($('#pissBtn').text()));  
-      });
+      $('#newSchoolForm').submit(function(event){
+        event.preventDefault;
+        submitSchool();
+      })
+      function submitSchool(){
+        $.post("addSchool.php",{ school: ($('addSchoolName').val()) })
+          .done(function( data) {
+            document.location.reload(true);
+          })
+      }
 
-      $('#pTypeDD li a').on('click', function(){
-        console.log("frog twat: "+($(this).text()));
-        $('#pissBtn').html($(this).text());  
+			$('#newPlayerForm').submit(function(event){
+				event.preventDefault();
+				submitForm();
+			});
+			function submitForm(){
+			   $.post( "updateTeamInfo.php", { name: ($('#addPlayName').val()), school: ($('#schoolsBtn').text()), type: ($('#pissBtn').text()) })
+                    .done(function( data ) {
+                    document.location.reload(true);
+                    });
+			}					
+      $('#schoolsDD').on('click','li a', function(){
+        console.log('clicked');
+        $('#schoolsBtn').html($(this).text());  
       });
+			$('#pTypeDD li a').on('click', function(){
+				$('#pissBtn').html($(this).text());  
+			});
+			
+			$('#mgrForm').submit(function(event){
+				event.preventDefault();
+				submitMgr();
+			});
+			function submitMgr(){
+				console.log("fname: "+($('#mgrForename').val())+" surname "+($('#mgrSurname').val())+" profile: "+($('#mgrProfile').val())+" image: "+($('#mgrImage').val()));
+				$.post( "updateManager.php", { forename: ($('#mgrForename').val()), surname: ($('#mgrSurname').val()), profile:($('#mgrProfile').val()), image:($('#mgrImage').val()) })
+                    .done(function( data ) {
+                    document.location.reload(true);
+                    });
+			}
+			
+			$('#squadForm').submit(function(event) {
+				event.preventDefault();
+				submitDeletions();
+			});
+			function submitDeletions(){
+				deletes = new Array();
+				$('#squadForm .player').each(function() {
+					if($(':checkbox:checked',this).length > 0)
+					{
+						//console.log($('#name',this).text());
+						deletes.push($('#name',this).text());
+					}
+				});
+				$.post("deletePlayers.php", {toDelete : deletes})
+					.done(function( data ) {
+          document.location.reload(true);
+					});	
+			}
 		});
 	</script>
   </body>
