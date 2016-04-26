@@ -130,7 +130,7 @@
     </div>
     <form class="form-inline" id="removeSchoolForm">
       
-      <div class="row pull-right">
+      <div id="removeButContainer" class="row pull-right">
         <button type="submit" id="removeSchoolBtn" class="btn btn-primary">Submit</button>
       </div>
     </form>
@@ -208,6 +208,7 @@
       $.getJSON('schools.json', function(data) {
         $.each(data.schools, function(key, value){
           $('#schoolsDD').append("<li><a href='#newPlayerForm'>"+value.name+"</a></li>");
+          $('#removeButContainer').before("<div class='schoolEntry'><div class='form-group col-sm-8'><label for='schoolsname' id='schoolName'>"+value.name+"</label></div><div class='checkbox' id='removeSchool'><label><input type='checkbox'> Remove School </label></div></div><br> ");
         })
       });
 
@@ -236,12 +237,54 @@
 				})
 			});
       
+      function stringVal($string, $length)
+      {
+        if($string.length>$length)
+        {
+          if($string.match(/^[-\sa-zA-Z]+$/))
+          {
+            return('Fine');
+          }
+          else
+          {
+            return('Invalid characters. Only letters, spaces and hyphens allowed');
+          }
+        }
+        else 
+        {
+          return('Not long enough');
+        }
+      }
       $('#newSchoolForm').submit(function(event){
         event.preventDefault;
-        submitSchool();
+        console.log("alreet");
+        $schoolString = $('#addSchoolName').val();
+        $check = stringVal($schoolString, 2);
+        if($check != 'Fine'){
+          alert($check);
+        }
+        else
+        {
+          console.log($check);
+        }
+        //if($schoolString.length>2)
+        //{
+          //if($schoolString.match(/^[-\sa-zA-Z]+$/))
+          //{
+            //submitSchool();
+          //}
+          //else
+          //{
+            //alert('Invalid characters. Only letters, spaces and hyphens allowed');
+          //}
+        //}
+        //else 
+        //{
+          //alert('School name not long enough');
+        //}
       })
       function submitSchool(){
-        $.post("addSchool.php",{ school: ($('addSchoolName').val()) })
+        $.post("addSchool.php",{ school: ($('#addSchoolName').val()) })
           .done(function( data) {
             document.location.reload(true);
           })

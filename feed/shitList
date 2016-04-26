@@ -1,6 +1,6 @@
 Latest stuff from hodger site
 - need to now modify under11.html jquery code to build the players list dynamically in the same format its currently in. After that we need to:
-make some form validation for the admin screen functions - player first name and surname must be entered
+make some form validation for the admin screen functions - player first name and surname must be entered - DONE BUT NEEDS TO BE GENERIC IF POSSIBLE
  - validation of manager details
  - if squad list is empty should we disable the button? Maybe Jquery can load json and then at time of building that section, if = 0 disable button
 - sort out remove squad list first item - looks like some kind of existing tag, remove
@@ -13,5 +13,5 @@ make some form validation for the admin screen functions - player first name and
 - remove fixture
 - need facililty to edit fixture to add results - maybe this could be added to remove fixture - simply get all that are marked for deletion and delete and then completely rebuild textfile for others in case they have had their score added/changed?
 
-- Add schools (required so that when building team list, can summarise by school without being affected by typos and inconsistency)
-- Remove school
+- Add schools (required so that when building team list, can summarise by school without being affected by typos and inconsistency) - DONE
+- Remove school - NEED TO DO
