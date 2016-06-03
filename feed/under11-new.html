@@ -329,6 +329,7 @@ Dan Stevenson<br>
 		$(document).ready(function() {
     		var myItems;
     		var goalDiv;
+    		var allSchools;
     		var d = new Date();
 			var curr_date = d.getDate();
 			var curr_month = d.getMonth()+1;
@@ -336,7 +337,7 @@ Dan Stevenson<br>
 
     		console.log("whatup mother fucker its "+curr_date+"/"+curr_month+"/"+curr_year);
     		$.getJSON('under11.json', function(data) {
-        		myItems = data.squad.goalkeepers;
+        		myItems = data.squad;
 
         		$.each(data.squad.goalkeepers, function(key, val) {
         			console.log(val.name+" "+val.text);
@@ -344,6 +345,22 @@ Dan Stevenson<br>
    					$('#goalies').append(goalDiv);
 				})
     		});
+    		$.getJSON('schools.json', function(data) {
+    			allSchools = data.schools
+    			$.each(data.schools, function(key, val) {
+    				var checkSchool = val.name;
+    				var playCount = 0;
+    				$.each(myItems, function (key,val) {
+    					if (val.school == checkSchool){
+    						add val.name to some sort of list
+    						playCount++;
+    					}
+    				})
+    				if(playCount > 0){
+    					$('#squad').append(checkSchool and players and html)
+    				}
+    			})
+    		})
 		});
 	</script>
   </body>
