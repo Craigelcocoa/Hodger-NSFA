@@ -349,17 +349,19 @@ Dan Stevenson<br>
     			allSchools = data.schools
     			$.each(data.schools, function(key, val) {
     				var checkSchool = val.name;
+    				var schoolString = $("<b>"+checkSchool+"</b>");
     				var playCount = 0;
     				$.each(myItems, function (key,val) {
     					if (val.school == checkSchool){
-    						add val.name to some sort of list
+    						schoolString.append("<br>"+val.name);
     						playCount++;
     					}
     				})
     				if(playCount > 0){
-    					$('#squad').append(checkSchool and players and html)
+    					$('#squad').append(schoolString+"<br><br>");
     				}
     			})
+    			$('#squad').append("<br");
     		})
 		});
 	</script>
